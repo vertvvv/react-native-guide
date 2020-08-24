@@ -253,7 +253,47 @@ Example:
 Tts.speak('Hello, world!');
 ```
 
+## Facebook login button
+
+[react-native-fbsdk](https://github.com/facebook/react-native-fbsdk#installation)
+
+```bash
+yarn add react-native-fbsdk
+cd ios && pod install
+```
+
+## VK login button
+
+[react-native-fbsdk](https://github.com/doomsower/react-native-vkontakte-login#installation)
+
+```bash
+yarn add react-native-vkontakte-login
+cd ios && pod install
+```
+
 # Articles
+
+## Change bundle id
+
+For iOS: Open XCode project, General tab, field "bundle identifier"
+For Android:
+- Rename the project' subfolder from: "android/app/src/main/java/MY/APP/OLD_ID/" to: "android/app/src/main/java/MY/APP/NEW_ID/"
+- android/app/src/main/java/MY/APP/NEW_ID/AnyActivityFile.java: `package MY.APP.NEW_ID;`
+- Rename the project' subfolder from: "android/app/src/debug/java/MY/APP/OLD_ID/" to: "android/app/src/debug/java/MY/APP/NEW_ID/"
+- android/app/src/debug/java/MY/APP/NEW_ID/ReactNativeFlipper.java: `package MY.APP.NEW_ID;`
+- android/app/src/main/AndroidManifest.xml: `package="MY.APP.NEW_ID"`
+- android/app/build.gradle: `applicationId "MY.APP.NEW_ID"`
+- android/app/BUCK:
+```
+android_build_config(
+  package="MY.APP.NEW_ID"
+)
+android_resource(
+  package="MY.APP.NEW_ID"
+)
+```
+- Gradle' cleaning in the end (in /android folder): `./gradlew clean`
+
 
 ## App icons
 
